@@ -1,0 +1,146 @@
+ADAPTIVE CONFIDENCE-INTEGRATED PURIFICATION (ACIP)
+Experimental Evaluation Script
+================================================================================
+ACIP Experimental Setup
+============================================================
+Device: cuda
+GPU: Tesla T4
+CUDA Version: 12.6
+GPU Memory: 15.6 GB
+Output directory: .research/iteration1/images
+Environment setup complete
+============================================================
+Running Quick Test...
+----------------------------------------
+✓ All imports successful
+Initializing models...
+Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /home/runner/.cache/torch/hub/checkpoints/resnet18-f37072fd.pth
+Classifier loaded: ResNet18 on cuda
+Diffusion model created: Dummy UNet + Gaussian Diffusion on cuda
+✓ Models initialized successfully
+Loading CIFAR-10 dataset...
+Dataset loaded with batch size 32, limited to 1 batches for testing
+Adversarial attack epsilon: 0.05
+Device: cuda
+✓ Data loading successful
+✓ ACIP purification test successful
+✓ Quick test completed successfully
+
+Starting Full Experimental Evaluation...
+================================================================================
+Starting ACIP Experimental Evaluation
+============================================================
+============================================================
+EXPERIMENT 1: Robustness Evaluation
+============================================================
+Loading CIFAR-10 dataset...
+Dataset loaded with batch size 32, limited to 2 batches for testing
+Adversarial attack epsilon: 0.05
+Device: cuda
+Initializing models...
+Classifier loaded: ResNet18 on cuda
+Diffusion model created: Dummy UNet + Gaussian Diffusion on cuda
+Loading CIFAR-10 dataset...
+Dataset loaded with batch size 32, limited to 2 batches for testing
+Adversarial attack epsilon: 0.05
+Device: cuda
+Initializing models...
+Classifier loaded: ResNet18 on cuda
+Diffusion model created: Dummy UNet + Gaussian Diffusion on cuda
+Robust Accuracy with ACIP: 0.000
+Robust Accuracy with Baseline: 0.000
+Improvement: 0.000
+============================================================
+EXPERIMENT 2: Ablation Study
+============================================================
+Running variant: adaptive_only
+Loading CIFAR-10 dataset...
+Dataset loaded with batch size 32, limited to 2 batches for testing
+Adversarial attack epsilon: 0.05
+Device: cuda
+Initializing models...
+Classifier loaded: ResNet18 on cuda
+Diffusion model created: Dummy UNet + Gaussian Diffusion on cuda
+  Robust Accuracy: 0.000
+  Avg. Steps until confidence threshold: 10.0
+Running variant: dynamic_only
+Loading CIFAR-10 dataset...
+Dataset loaded with batch size 32, limited to 2 batches for testing
+Adversarial attack epsilon: 0.05
+Device: cuda
+Initializing models...
+Classifier loaded: ResNet18 on cuda
+Diffusion model created: Dummy UNet + Gaussian Diffusion on cuda
+  Robust Accuracy: 0.000
+  Avg. Steps until confidence threshold: 10.0
+Running variant: full_acip
+Loading CIFAR-10 dataset...
+Dataset loaded with batch size 32, limited to 2 batches for testing
+Adversarial attack epsilon: 0.05
+Device: cuda
+Initializing models...
+Classifier loaded: ResNet18 on cuda
+Diffusion model created: Dummy UNet + Gaussian Diffusion on cuda
+  Robust Accuracy: 0.000
+  Avg. Steps until confidence threshold: 10.0
+Running variant: baseline
+Loading CIFAR-10 dataset...
+Dataset loaded with batch size 32, limited to 2 batches for testing
+Adversarial attack epsilon: 0.05
+Device: cuda
+Initializing models...
+Classifier loaded: ResNet18 on cuda
+Diffusion model created: Dummy UNet + Gaussian Diffusion on cuda
+  Robust Accuracy: 0.000
+  Avg. Steps until confidence threshold: 10.0
+Confidence evolution plot saved: .research/iteration1/images/confidence_evolution_ablation.pdf
+============================================================
+EXPERIMENT 3: Efficiency and Convergence Analysis
+============================================================
+Running ACIP efficiency test...
+Loading CIFAR-10 dataset...
+Dataset loaded with batch size 32, limited to 2 batches for testing
+Adversarial attack epsilon: 0.05
+Device: cuda
+Initializing models...
+Classifier loaded: ResNet18 on cuda
+Diffusion model created: Dummy UNet + Gaussian Diffusion on cuda
+Running baseline efficiency test...
+Loading CIFAR-10 dataset...
+Dataset loaded with batch size 32, limited to 2 batches for testing
+Adversarial attack epsilon: 0.05
+Device: cuda
+Initializing models...
+Classifier loaded: ResNet18 on cuda
+Diffusion model created: Dummy UNet + Gaussian Diffusion on cuda
+ACIP - Avg Steps: 10.0, Avg Time: 0.162 sec
+Baseline - Avg Steps: 10.0, Avg Time: 0.038 sec
+Convergence comparison plot saved: .research/iteration1/images/convergence_comparison.pdf
+============================================================
+EXPERIMENTAL SUMMARY
+============================================================
+Experiment 1 - ACIP Improvement: 0.000
+Experiment 2 - Best variant: full_acip
+Experiment 3 - ACIP efficiency: 10.0 steps, 0.162s
+
+================================================================================
+EXPERIMENTAL RESULTS SUMMARY
+================================================================================
+🎯 ROBUSTNESS IMPROVEMENT:
+   ACIP Accuracy: 0.000
+   Baseline Accuracy: 0.000
+   Improvement: +0.000
+
+⚡ EFFICIENCY ANALYSIS:
+   ACIP: 10.0 steps, 0.162s
+   Baseline: 10.0 steps, 0.038s
+
+📊 OUTPUTS GENERATED:
+   ✓ confidence_evolution_ablation.pdf
+   ✓ convergence_comparison.pdf
+
+🎉 EXPERIMENT COMPLETED SUCCESSFULLY!
+   Total PDF plots generated: 2
+   All outputs saved to: .research/iteration1/images
+
+📋 STATUS: stopped
